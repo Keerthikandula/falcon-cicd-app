@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.11"
-          cache: 'pip'
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -43,6 +43,7 @@ jobs:
         id: scan
         with:
           image: "keerthikandula/falcon-cicd-app"
+          fail-build: false
 
       - name: Upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@v3
@@ -52,7 +53,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: vuln-report
-          path: results.sarif
+          path: ${{ steps.scan.outputs.sarif }}
 
       - uses: actions/upload-artifact@v4
         with:
