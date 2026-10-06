@@ -19,8 +19,8 @@ jobs:
           pip install -r requirements.txt
       - name: Docker Build and run
         run: |
-          docker build . -t Keerthikandula/falcon-cicd-app
-          docker run -d -p 8000:8000 Keerthikandula/falcon-cicd-app
+          docker build . -t keerthikandula/falcon-cicd-app
+          docker run -d -p 8000:8000 keerthikandula/falcon-cicd-app
 
       - name: Test Code
         run: coverage run -m pytest tests/
@@ -60,7 +60,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: Keerthikandula/falcon-cicd-app:latest
+          tags: "keerthikandula/falcon-cicd-app"
 
       - name: Create issue on failure
         if: ${{ failure() }}
