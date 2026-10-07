@@ -1,6 +1,6 @@
 import falcon
 
-from .images import Resource
+from images import Resource
 
 
 app = application = falcon.App()

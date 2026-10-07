@@ -4,7 +4,7 @@ import pytest
 import falcon
 from falcon import testing
 
-from look.app import app
+from app import app
 
 
 @pytest.fixture
